@@ -1,0 +1,29 @@
+{'CheapestPrice': [name                Nokia 105 Classic with Charger
+descount_price                              1134.0
+orginal_price                               1399.0
+descount_Percent                                18
+review                                           3
+reviews                                          3
+rating                                           5
+Name: 12, dtype: object], 'MostExpensiveProduct': [name                Nothing Phone (3a) Pro (Black, 128 GB)
+descount_price                                     28999.0
+orginal_price                                      32999.0
+descount_Percent                                        12
+review                                                   4
+reviews                                                  4
+rating                                                   4
+Name: 4, dtype: object], 'MostReviewedProduct': [name                CMF by Nothing Phone 2 Pro (Black, 128 GB)
+descount_price                                           18999
+orginal_price                                            22999
+descount_Percent                                         99.93
+review                                                       7
+reviews                                                      4
+rating                                                       7
+Name: 0, dtype: object], 'HighestRatedProduct': [name                REDMI A5 (Jaisalmer Gold, 64 GB)
+descount_price                                  6499
+orginal_price                                   8999
+descount_Percent                                99.7
+review                                             4
+reviews                                            4
+rating                                             9
+Name: 2, dtype: object]}

@@ -1,0 +1,10 @@
+.homepage_frame{
+    background-image: url("../../../public//images/hp_bg.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(90%);
+}
+
+.hp_cont{
+    background-color: rgba(0, 0, 0, 0.482);
+}

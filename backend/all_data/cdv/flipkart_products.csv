@@ -1,0 +1,25 @@
+Product Name,Product URL,Product Description,Category,Base Price,Discounted Price,Competitor Price,Price History,Rating,Number of Reviews,Seller Name,Stock Availability,Shipping Details,Delivery Time Estimate
+Wireless Mouse,http://flipkart.com/product-1,Ergonomic design with long battery life,Electronics,25.99,22.49,27.49,"[25.99, 24.99, 22.49]",4.5,1200,BestTech,In Stock,Free Shipping,3-5 Days
+Mechanical Keyboard,http://flipkart.com/product-2,RGB backlit gaming keyboard with tactile switches,Gaming,89.99,85.49,95.99,"[89.99, 88.99, 85.49]",4.7,3400,GameGear,In Stock,Free Shipping,3-5 Days
+Gaming Monitor,http://flipkart.com/product-3,High refresh rate 144Hz display,Gaming,199.99,195.99,210.99,"[199.99, 210.99, 195.99]",4.6,1800,DisplayMasters,In Stock,Free Shipping,3-5 Days
+Bluetooth Headphones,http://flipkart.com/product-4,Noise cancellation with HD sound,Audio,59.99,54.99,62.99,"[59.99, 58.99, 54.99]",4.2,2800,SonicTech,In Stock,Free Shipping,3-5 Days
+USB-C Hub,http://flipkart.com/product-5,Compact multi-port hub for Type-C devices,Accessories,39.99,38.49,38.49,"[39.99, 38.99, 38.49]",4.3,900,USBWorks,In Stock,Free Shipping,3-5 Days
+Laptop Stand,http://flipkart.com/product-6,Adjustable stand for comfortable laptop use,Accessories,34.99,33.99,33.99,"[34.99, 33.99, 33.49]",4.4,1500,LaptopWorld,In Stock,Free Shipping,3-5 Days
+Portable SSD,http://flipkart.com/product-7,Fast NVMe storage with high-speed transfers,Storage,129.99,132.99,132.99,"[129.99, 132.99, 131.49]",4.8,2200,StoragePro,In Stock,Free Shipping,3-5 Days
+Smartphone Tripod,http://flipkart.com/product-8,Stable tripod for smartphone photography,Photography,19.99,21.49,21.49,"[19.99, 21.49, 19.49]",4.1,800,CameraExperts,In Stock,Free Shipping,3-5 Days
+Wireless Earbuds,http://flipkart.com/product-9,True wireless earbuds with deep bass,Audio,74.99,78.99,78.99,"[74.99, 78.99, 76.49]",4.6,3100,AudioXperts,In Stock,Free Shipping,3-5 Days
+Gaming Chair,http://flipkart.com/product-10,Premium ergonomic gaming chair,Furniture,159.99,162.99,162.99,"[159.99, 162.99, 157.99]",4.5,1700,GamingZone,In Stock,Free Shipping,3-5 Days
+Smartwatch,http://flipkart.com/product-11,Smartwatch with fitness tracking,Wearable,199.99,198.99,198.99,"[199.99, 198.99, 200.49]",4.2,2400,WearableTech,In Stock,Free Shipping,3-5 Days
+HD Webcam,http://flipkart.com/product-12,1080p HD webcam for video calls,Computing,49.99,51.99,51.99,"[49.99, 51.99, 48.99]",4.3,1000,WebCamCo,In Stock,Free Shipping,3-5 Days
+Desk Lamp,http://flipkart.com/product-13,LED desk lamp with adjustable brightness,Home Decor,22.99,23.49,23.49,"[22.99, 23.49, 23.49]",4.0,600,HomeEssentials,In Stock,Free Shipping,5-7 Days
+Noise-Canceling Headphones,http://flipkart.com/product-14,Wireless headphones with noise cancellation,Audio,179.99,182.99,182.99,"[179.99, 182.99, 181.49]",4.7,2800,AudioMasters,In Stock,Free Shipping,5-7 Days
+Phone Holder,http://flipkart.com/product-15,Universal phone holder with adjustable grip,Accessories,15.99,16.49,16.49,"[15.99, 16.49, 15.49]",4.1,700,MobileGears,In Stock,Free Shipping,5-7 Days
+Mechanical Pencil,http://flipkart.com/product-16,Graphite mechanical pencil for smooth writing,Stationery,9.99,10.99,10.99,"[9.99, 10.99, 9.49]",3.9,400,StationeryHub,In Stock,Free Shipping,5-7 Days
+Wireless Charger,http://flipkart.com/product-17,Fast wireless charging pad,Accessories,39.99,41.49,41.49,"[39.99, 41.49, 40.49]",4.4,1300,ChargingPro,In Stock,Free Shipping,5-7 Days
+External Hard Drive,http://flipkart.com/product-18,External HDD with backup software,Storage,89.99,92.99,92.99,"[89.99, 92.99, 91.49]",4.5,2100,StorageKing,In Stock,Free Shipping,5-7 Days
+Microphone,http://flipkart.com/product-19,Professional microphone for streaming,Audio,129.99,135.99,135.99,"[129.99, 135.99, 127.99]",4.3,900,ProMicStore,In Stock,Free Shipping,5-7 Days
+VR Headset,http://flipkart.com/product-20,VR headset with immersive experience,Gaming,299.99,310.99,310.99,"[299.99, 310.99, 305.49]",4.8,3200,VirtualRealityInc,In Stock,Free Shipping,5-7 Days
+Gaming Laptop,http://flipkart.com/product-21,High-performance gaming laptop,Computing,799.99,820.99,820.99,"[799.99, 820.99, 810.49]",4.6,1200,FastComputers,Out of Stock,Free Shipping,5-7 Days
+Smart TV,http://flipkart.com/product-22,4K Smart TV with built-in streaming apps,Entertainment,999.99,970.99,970.99,"[999.99, 970.99, 985.49]",4.9,4000,SmartScreenStore,Out of Stock,Free Shipping,5-7 Days
+Power Bank,http://flipkart.com/product-23,"20,000mAh power bank for fast charging",Power,29.99,32.99,32.99,"[29.99, 32.99, 30.49]",4.1,1000,PowerBoost,Out of Stock,Free Shipping,5-7 Days
+Fitness Tracker,http://flipkart.com/product-24,Wearable fitness tracker with heart rate monitoring,Wearable,99.99,95.99,95.99,"[99.99, 95.99, 97.49]",4.2,2100,FitTech,Out of Stock,Free Shipping,5-7 Days
