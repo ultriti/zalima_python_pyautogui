@@ -11,6 +11,7 @@ import pandas as pd
 import os
 import re
 import json
+import numpy as np
 
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
@@ -24,10 +25,21 @@ filename_ = ""
 label = []
 
 app = Flask(__name__)
+# CORS(
+#     app,
+#     supports_credentials=True,
+#     origins=["http://localhost:5173", "http://localhost:5173/autoMate"],
+# )
 CORS(app, resources={
-    r"/api/*": {"origins": "http://localhost:5173"},
+    r"/api/*": {
+        "origins": [
+            "http://localhost:5173",
+            "http://localhost:5173/autoMate"
+        ]
+    }
 }, supports_credentials=True)
-app.config['SECRET_KEY'] = 'your-secret-key'
+
+# app.config['SECRET_KEY'] = 'your-secret-key'
 
 # connect with mongo db
 db = get_db()
@@ -101,22 +113,33 @@ def home():
 
     return jsonify({'error': 'User not logged in'}), 401
 
+import os
+import pandas as pd
+from flask import request, jsonify
+
 @app.route('/api/selenium_data', methods=['POST'])
 def selenium_data():
     data = request.json
     website_name = data.get('website_name')
     parameter = data.get("custom_parameter")
 
-    print("-----data:",parameter,website_name)
-    website_data = automate_browser(website_name,parameter)
+    print("-----data:", parameter, website_name)
+    website_data = automate_browser(website_name, parameter)
     if website_data:
-        print("-sas-dasd-sad-asdas>",website_data)
-    
-        file_name = f"{website_name}.csv"
-        df = pd.DataFrame(website_data)
-        df.to_csv(r"E:\python\ptautomateai\project\Zalima_Pyautogui_project\backend\all_data\flipkart_website_data_.csv", index=False)
+        print("Fetched website data:", website_data)
 
-        return jsonify({'message': 'get data '}), 200
+        file_path = r"E:\python\ptautomateai\project\Zalima_Pyautogui_project\backend\all_data\flipkart_website_data_.csv"
+
+        # ✅ Delete file if it exists
+        if os.path.exists(file_path):
+            os.remove(file_path)
+            print(f"Deleted old file: {file_path}")
+
+        # Save new CSV
+        df = pd.DataFrame(website_data)
+        df.to_csv(file_path, index=False)
+
+        return jsonify({'message': 'Data fetched and saved'}), 200
     else:
         return jsonify({'error': 'Failed to fetch data'}), 500
 
@@ -140,135 +163,234 @@ def automate_desktop_data():
 
 @app.route('/api/filtering', methods=['POST'])
 def filtering():
-    data = pd.read_csv(r"E:\python\ptautomateai\project\Zalima_Pyautogui_project\backend\all_data\flipkart_website_data.csv")
-
+    # Load CSV
+    data = pd.read_csv(
+        r"E:\python\ptautomateai\project\Zalima_Pyautogui_project\backend\all_data\flipkart_website_data_.csv"
+    )
     df = pd.DataFrame(data)
 
-    df["descount_price"] = df["descount_price"].astype(str).replace("₹", "",regex=True)
-    df["descount_price"] = df["descount_price"].astype(str).replace(",", "",regex=True)
-    df["descount_price"] = df["descount_price"].astype(float)
+    # Clean numeric columns
+    df["discount_price"] = (
+        df["discount_price"].astype(str)
+        .str.replace("₹", "", regex=True)
+        .str.replace(",", "", regex=True)
+        .astype(float)
+    )
+    df["original_price"] = (
+        df["original_price"].astype(str)
+        .str.replace("₹", "", regex=True)
+        .str.replace(",", "", regex=True)
+        .astype(float)
+    )
+    df["discount_percent"] = (
+        df["discount_percent"].astype(str).str.extract(r"(\d+)").astype(float)
+    )
     
-    df["orginal_price"] = df["orginal_price"].astype(str).replace("₹", "",regex=True)
-    df["orginal_price"] = df["orginal_price"].astype(str).replace(",", "",regex=True)
-    df["orginal_price"] = df["orginal_price"].astype(float)
-    
+    def extract_ratings(val):
+        val = str(val).replace(",", "")
+        numbers = re.findall(r"\d+", val)
+        return int(numbers[0]) if len(numbers) > 0 else 0
 
+    def extract_reviews(val):
+        val = str(val).replace(",", "")
+        numbers = re.findall(r"\d+", val)
+        return int(numbers[1]) if len(numbers) > 1 else 0
 
-    X = df[["orginal_price", "descount_price", "rating", "reviews"]]
-    y = df["descount_price"]
+    df["ratings_count"] = df["review"].apply(extract_ratings)
+    df["reviews_count"] = df["review"].apply(extract_reviews)
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    # Features and target
+    X = df[["original_price", "discount_price", "ratings_count", "reviews_count"]]
+    y = df["discount_price"]
 
+    # Train/test split
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=42
+    )
+
+    # Train model
     model = RandomForestRegressor(n_estimators=100, random_state=42)
     model.fit(X_train, y_train)
 
+    # Predictions
     y_pred = model.predict(X_test)
 
+    # Error metric
     mae = mean_absolute_error(y_test, y_pred)
     print(f"Mean Absolute Error: {mae:.2f}")
 
-    # Save graph as image
+    # Graph path
     graph_path = r"E:\python\ptautomateai\project\Zalima_Pyautogui_project\backend\all_data\graph.png"
-    # plt.savefig(graph_path)  # Save graph
+    if os.path.exists(graph_path):
+        os.remove(graph_path)
+        print(f"Deleted old file ---> {graph_path}")
 
+    # Scatter plot: Original vs Discounted, colored by discount_percent
+    plt.figure(figsize=(10, 6))
+    scatter = plt.scatter(
+        df["original_price"],
+        df["discount_price"],
+        c=df["discount_percent"],
+        cmap="coolwarm",
+        alpha=0.7,
+        edgecolors="w",
+    )
+    plt.xlabel("Original Price (₹)")
+    plt.ylabel("Discounted Price (₹)")
+    plt.title("Price Reduction Analysis")
+    cbar = plt.colorbar(scatter)
+    cbar.set_label("Discount Percent (%)")
 
-    return jsonify({"message": "Graph created successfully", "graph_path": graph_path}), 200
+    # Save graph
+    plt.tight_layout()
+    plt.savefig(graph_path)
+    plt.close()
+
+    return jsonify(
+        {"message": "Graph created successfully", "graph_path": graph_path}
+    ), 200
 
 
 # ----------------------------------- how groph 
 @app.route('/api/show-graph', methods=['GET'])
 def show_graph():
-    print("---------------------------------------> show graph")
-    graph_path = r"E:\python\ptautomateai\project\Zalima_Pyautogui_project\backend\all_data\graph.png"
-#     graph_paths = [
-#     r"E:\python\ptautomateai\project\Zalima_Pyautogui_project\backend\all_data\graph.png",
-#     r"E:\python\ptautomateai\project\Zalima_Pyautogui_project\backend\all_data\flipCart_history_graph.png",
-#     r"E:\python\ptautomateai\project\Zalima_Pyautogui_project\backend\all_data\flipCart_disocunt_graph.png"
-# ]
+    print("-------> show graph request")
+    
+
+    # Allow dynamic graph selection via query parameter
+    graph_name = request.args.get("name", "graph.png")  
+    graph_dir = r"E:\python\ptautomateai\project\Zalima_Pyautogui_project\backend\all_data"
+    graph_path = os.path.join(graph_dir, graph_name)
+
     if os.path.exists(graph_path):
         return send_file(graph_path, mimetype='image/png')
     else:
-        return jsonify({"error": "Graph not found"}), 404
+        return jsonify({"error": f"Graph '{graph_name}' not found"}), 404
     
 
-# ----------------- csv file info
+
+
+def get_top_products(products, top_n=5):
+    """
+    Filter and return the best products based on lowest price and highest reviews.
+    """
+    cleaned = []
+    for p in products:
+        try:
+            price = int("".join(filter(str.isdigit, str(p.get("descount_price", "")))) or 0)
+            reviews = int("".join(filter(str.isdigit, str(p.get("reviews", "")))) or 0)
+            rating = float(str(p.get("rating", "0")).replace(",", ".") or 0)
+
+            cleaned.append({
+                "name": p.get("name"),
+                "price": price,
+                "reviews": reviews,
+                "rating": rating,
+                "original_price": p.get("orginal_price"),
+                "discount_percent": p.get("descount_Percent"),
+            })
+        except Exception as e:
+            print("Skipping product due to parse error:", e)
+
+    sorted_products = sorted(
+        cleaned,
+        key=lambda x: (x["price"], -x["reviews"], -x["rating"])
+    )
+    return sorted_products[:top_n]
+
+
+# @app.route('/api/get_info', methods=['GET'])
 @app.route('/api/get_info', methods=['GET'])
 def getInfo():
+    import pandas as pd
+    import re
+    import json   # <-- add this
+
+    print("------------------------------------------------>")
     # Load CSV file
-    file_path = r"E:/python/ptautomateai/project/Zalima_Pyautogui_project/backend/all_data/flipkart_website_data.csv"
+    file_path = r"E:\python\ptautomateai\project\Zalima_Pyautogui_project\backend\all_data\flipkart_website_data_.csv"
     df = pd.read_csv(file_path)
-    
-    df["descount_price"] = df["descount_price"].astype(str).replace("₹", "",regex=True)
-    df["descount_price"] = df["descount_price"].astype(str).replace(",", "",regex=True)
-    df["descount_price"] = df["descount_price"].astype(float)
-    
-    df["orginal_price"] = df["orginal_price"].astype(str).replace("₹", "",regex=True)
-    df["orginal_price"] = df["orginal_price"].astype(str).replace(",", "",regex=True)
-    df["orginal_price"] = df["orginal_price"].astype(float)
 
-    # Display basic information
-    print("Column Names:", df.columns.tolist())
-    print("\nData Types:", df.dtypes)
-    print("\nMissing Values:", df.isnull().sum())
-    print("\nBasic Statistics:")
-    print(df.describe())
-
-    # Find Cheapest & Most Expensive Products
-    cheapest_product = df.loc[df["orginal_price"].idxmin()]
-    most_expensive_product = df.loc[df["orginal_price"].idxmax()]
-    print("\nCheapest Product:\n", cheapest_product)
-    print("\nMost Expensive Product:\n", most_expensive_product)
-
-    # Price Analysis
-    print("\nPrice Range Distribution:")
-    df["orginal_price"] = df["orginal_price"].astype(int)
-    df["descount_price"] = df["descount_price"].astype(int)
-    df["descount_Percent"] = pd.to_numeric(df["descount_Percent"], errors='coerce')
-
-    
-    price_ranges = pd.cut(df["orginal_price"], bins=[0, 5000, 10000, 20000, 50000, 100000], labels=["Very Cheap", "Cheap", "Moderate", "Expensive", "Luxury"])
-    print(price_ranges.value_counts())
-
-    # Discount Analysis
-    df["descount_Percent"] = ((df["orginal_price"] - df["descount_Percent"]) / df["orginal_price"]) * 100
-    df["descount_Percent"] = df["descount_Percent"].round(2)
-    top_discounts = df.nlargest(5, "descount_Percent")
-    print("\nTop 5 Best Discounts:\n", top_discounts[["name", "orginal_price", "descount_price", "descount_Percent"]])
-
-    # Most Reviewed & Highest-Rated Products
-    most_reviews = df.loc[df["reviews"].idxmax()]
-    highest_rated = df.loc[df["rating"].idxmax()]
-    print("\nMost Reviewed Product:\n", most_reviews)
-    print("\nHighest Rated Product:\n", highest_rated)
-    print(df)
-    
-    
-    print("----------------------------------------------------")
-    print(
-        f"description: {df.describe()} , \nCheapestPrice :{cheapest_product}, \nMostExpensiveProduct :{most_expensive_product} , \nPriceRangeDistribution: {price_ranges.value_counts()} ,\nMostReviewedProduct:{most_reviews},\nHighestRatedProduct:{highest_rated}", 
-        
+    # --- Clean numeric columns ---
+    df["discount_price"] = (
+        df["discount_price"].astype(str)
+        .str.replace("₹", "", regex=True)
+        .str.replace(",", "", regex=True)
     )
-    
-  
-    
-    data ={
-        "CheapestPrice":[cheapest_product], 
-        "MostExpensiveProduct":[most_expensive_product],
-        # "PriceRangeDistribution":{price_ranges.value_counts()},
-        "MostReviewedProduct":[most_reviews],
-        "HighestRatedProduct":[highest_rated ]
-    }
-    fileName_txt = r"E:\python\ptautomateai\project\Zalima_Pyautogui_project\frontend\public\text file\info.txt"
-    with open(fileName_txt,"w+") as f:
-        f.write(str(data))
-        f.close
-    
+    df["discount_price"] = pd.to_numeric(df["discount_price"], errors="coerce")
 
+    df["original_price"] = (
+        df["original_price"].astype(str)
+        .str.replace("₹", "", regex=True)
+        .str.replace(",", "", regex=True)
+    )
+    df["original_price"] = pd.to_numeric(df["original_price"], errors="coerce")
+
+    # --- Clean discount_percent like "29% off" ---
+    def clean_discount(val):
+        match = re.search(r"(\d+)", str(val))
+        return int(match.group(1)) if match else 0
+
+    df["discount_percent"] = df["discount_percent"].apply(clean_discount)
+
+    # --- Clean review column like "1,514 Ratings&124 Reviews" ---
+    def extract_ratings(val):
+        val = str(val).replace(",", "")
+        numbers = re.findall(r"\d+", val)
+        return int(numbers[0]) if len(numbers) > 0 else 0
+
+    def extract_reviews(val):
+        val = str(val).replace(",", "")
+        numbers = re.findall(r"\d+", val)
+        return int(numbers[1]) if len(numbers) > 1 else 0
+
+    df["ratings_count"] = df["review"].apply(extract_ratings)
+    df["reviews_count"] = df["review"].apply(extract_reviews)
+
+    # Drop rows with missing critical values
+    df = df.dropna(subset=["discount_price", "original_price", "ratings_count", "reviews_count"])
+
+    # --- Analysis ---
+    cheapest_product = df.loc[df["original_price"].idxmin()] if not df.empty else None
+    most_expensive_product = df.loc[df["original_price"].idxmax()] if not df.empty else None
+    most_reviews = df.loc[df["reviews_count"].idxmax()] if not df.empty else None
+    highest_rated = df.loc[df["ratings_count"].idxmax()] if not df.empty else None
+
+    products = df.to_dict(orient="records")
+    top_products = get_top_products(products, top_n=5)
+
+    # Prepare response data safely
+    data_array = []
+
+    if cheapest_product is not None:
+        data_array.append({"type": "Cheapest", **cheapest_product.to_dict()})
+
+    if most_expensive_product is not None:
+        data_array.append({"type": "Most Expensive", **most_expensive_product.to_dict()})
+
+    if most_reviews is not None:
+        data_array.append({"type": "Most Reviewed", **most_reviews.to_dict()})
+
+    if highest_rated is not None:
+        data_array.append({"type": "Highest Rated", **highest_rated.to_dict()})
+
+    for prod in top_products:
+        data_array.append({"type": "Top Product", **prod})
+
+    # Optional: save to file
+    fileName_txt = r"E:\python\ptautomateai\project\Zalima_Pyautogui_project\frontend\public\text file\info.txt"
+    if os.path.exists(fileName_txt):
+            os.remove(fileName_txt)
+            print(f"Deleted old file--->\n: {fileName_txt}")
     
-   
-    return jsonify({"infoData":fileName_txt}), 200
- 
-    # "Discount":top_discounts[["name", "orginal_price", "descount_price", "descount_Percent"]]
+    with open(fileName_txt, "w", encoding="utf-8") as f:
+        f.write(json.dumps(data_array, indent=2))
+
+    return jsonify({"infoData": data_array}), 200
+
+
+
+
 
 
 # -------------------------> ai ml model

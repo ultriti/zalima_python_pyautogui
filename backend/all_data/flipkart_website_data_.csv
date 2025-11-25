@@ -1,21 +1,21 @@
-name,descount_price,orginal_price,descount_Percent,review,reviews,rating
-"DELL 14 Plus Backlit Keyboard, Fingerprint reader Intel Core Ultra 5 226V - (16 GB/512 GB SSD/Windows ...","₹78,490","₹98,859",20% off,2,4,1
-Acer Aspire 3 (2025) Intel Core i5 13th Gen 1334U - (16 GB/512 GB SSD/Windows 11 Home) Aspire 3 A325-5...,"₹41,650","₹84,990",50% off,4,4,5
-Lenovo IdeaPad Slim 3 Backlit Intel Core i5 12th Gen 12450H - (16 GB/512 GB SSD/Windows 11 Home) 15IAH...,"₹46,490","₹72,690",36% off,7,4,1
-Acer 3 Years Warranty Aspire 3 (2025) Intel Core i3 13th Gen 1305U - (16 GB/512 GB SSD/Windows 11 Home...,"₹33,990","₹70,990",52% off,5,4,2
-Acer Aspire 3 Intel Celeron Dual Core - (8 GB/128 GB SSD/Windows 11 Home) A311-45 Thin and Light Lapto...,"₹15,990","₹32,990",51% off,5,3,6
-Acer Aspire 3 Intel Celeron Dual Core N4500 - (8 GB/512 GB SSD/Windows 11 Home) A325-45 Thin and Light...,"₹23,990","₹33,999",29% off,2,3,3
-DELL Inspiron 15 MSO'24 with Backlit KB Intel Core i7 13th Gen 1355U - (16 GB/512 GB SSD/Windows 11 Ho...,"₹68,990","₹73,911",6% off,1,4,4
-Lenovo IdeaPad Slim 3 Intel Core i5 12th Gen 12450H - (16 GB/512 GB SSD/Windows 11 Home) 83ER00KSIN Th...,"₹45,490","₹70,990",35% off,2,4,4
-Acer Aspire 3 Intel Core i3 12th Gen 1215U - (8 GB/512 GB SSD/Windows 11 Home) A324-51 Thin and Light ...,"₹27,990","₹43,000",34% off,3,4,5
-HP 15 (2024) AMD Ryzen 3 Quad Core 7320U - (8 GB/512 GB SSD/Windows 11 Home) 15-fc0500AU / 15-fc0154AU...,"₹30,990","₹44,783",30% off,2,4,3
-Acer Aspire 3 Intel Celeron Dual Core - (8 GB/512 GB SSD/Windows 11 Home) A311-45 Thin and Light Lapto...,"₹19,990","₹35,999",44% off,5,3,6
-DELL 15 Intel Core i5 13th Gen 1334U - (16 GB/512 GB SSD/Windows 11 Home) 3530 Thin and Light Laptop,"₹50,490","₹64,402",21% off,1,4,1
-"ASUS Vivobook 15, with Backlit Keyboard, Intel Core i3 13th Gen 1315U - (8 GB/512 GB SSD/Windows 11 Ho...","₹35,990","₹54,990",34% off,1,4,2
-Samsung Galaxy Book4 Metal Intel Core i3 13th Gen 1315U - (8 GB/512 GB SSD/Windows 11 Home) NP750XGJ-L...,"₹37,999","₹57,499",33% off,8,4,8
-DELL Vostro Intel Core i5 12th Gen 1235U - (16 GB/512 GB SSD/Windows 11 Home) 3520 Thin and Light Lapt...,"₹49,999","₹61,000",18% off,3,4,6
-Acer Intel Core i3 12th Gen 1215U - (16 GB/512 GB SSD/Windows 11 Home) A324-51 Thin and Light Laptop,"₹29,990","₹47,999",37% off,3,4,5
-HP Laptop Intel Core i3 13th Gen 1315U - (8 GB/512 GB SSD/Windows 11 Home) 15-fd0129TU / 15-fd0568TU T...,"₹36,990","₹52,115",29% off,1,4,1
-Acer Aspire AMD Ryzen 5 Hexa Core 7430U - (16 GB/1 TB SSD/Windows 11 Home) AS15-42 Thin and Light Lapt...,"₹39,990","₹54,990",27% off,2,4,2
-Lenovo 100e Chromebook Gen 4 MediaTek Kompanio 520 - (4 GB/32 GB EMMC Storage/Chrome OS) 82W00004HA Ch...,"₹12,789","₹16,999",24% off,1,3,1
-ASUS Expertbook P1 High-performance processor Intel Core i7 13th Gen 13620H - (32 GB/512 GB SSD/Window...,"₹74,990","₹1,29,990",42% off,5,4,6
+name,discount_price,original_price,discount_percent,review,rating,reviews_stars
+MOTOROLA Motobook 60 Full Metal OLED (i5 14th Gen) Intel Core 5 (Series 2) 210H - (16 GB/512 GB SSD/Wi...,"₹49,990","₹93,690",46% off,"1,819 Ratings&197 Reviews",,4.4
+Samsung Galaxy Book4 Edge Series Copilot AI-PC Full Metal Chasis Qualcomm Snapdragon X - (16 GB/512 GB...,"₹64,990","₹92,390",29% off,"1,514 Ratings&124 Reviews",,4.4
+Acer Aspire 3 Intel Celeron Dual Core - (8 GB/128 GB SSD/Windows 11 Home) A311-45 Thin and Light Lapto...,"₹15,990","₹32,990",51% off,"6,718 Ratings&601 Reviews",,3.8
+DELL 15 AMD Ryzen 5 Hexa Core 7530U - (16 GB/512 GB SSD/Windows 11 Home) 3535 Thin and Light Laptop,"₹38,990","₹56,919",31% off,"1,994 Ratings&130 Reviews",,4.3
+ASUS Expertbook P1 High-performance processor Intel Core i5 13th Gen 13420H - (16 GB/512 GB SSD/Window...,"₹46,990","₹89,990",47% off,"3,432 Ratings&273 Reviews",,4.3
+MOTOROLA Motobook 60 Full Metal OLED (i5 14th Gen) Intel Core 5 (Series 2) 210H - (16 GB/512 GB SSD/Wi...,"₹50,990","₹93,990",45% off,"1,819 Ratings&197 Reviews",,4.4
+Samsung Galaxy Book4 Metal Intel Core i5 13th Gen 1335U - (16 GB/512 GB SSD/Windows 11 Home) NP750XGJ-...,"₹49,990","₹82,789",39% off,"14,515 Ratings&1,164 Reviews",,4.4
+Lenovo Chromebook MediaTek Kompanio 520 - (4 GB/128 GB EMMC Storage/Chrome OS) 14M868 Chromebook,"₹12,990","₹28,690",54% off,"3,161 Ratings&269 Reviews",,3.9
+DELL 15 AMD Ryzen 3 Quad Core 7320U - (8 GB/512 GB SSD/Windows 11 Home) Inspiron 3535 / 15 DC 15255 Th...,"₹28,990","₹41,198",29% off,"1,882 Ratings&251 Reviews",,4.3
+Acer Aspire 3 Intel Celeron Dual Core - (8 GB/512 GB SSD/Windows 11 Home) A311-45 Thin and Light Lapto...,"₹19,990","₹35,999",44% off,"6,718 Ratings&601 Reviews",,3.8
+MOTOROLA Motobook 60 Full Metal OLED (i7 14th Gen) Intel Core 7 (Series 2) 240H - (16 GB/1 TB SSD/Wind...,"₹68,990","₹1,10,490",37% off,578 Ratings&69 Reviews,,4.4
+MOTOROLA Motobook 60 Full Metal OLED (i7 14th Gen) Intel Core 7 (Series 2) 240H - (16 GB/512 GB SSD/Wi...,"₹64,990","₹1,04,890",38% off,578 Ratings&69 Reviews,,4.4
+Acer Aspire Lite AMD Ryzen 3 Quad Core 5300U - (8 GB/512 GB SSD/Windows 11 Home) AL15-41 Thin and Ligh...,"₹26,990","₹44,990",40% off,"1,211 Ratings&94 Reviews",,4.1
+Acer Aspire 15 AMD Ryzen 5 Hexa Core 7430U - (16 GB/512 GB SSD/Windows 11 Home) Aspire AS15-42 Thin an...,"₹34,990","₹59,990",41% off,"2,956 Ratings&308 Reviews",,4.1
+Acer Aspire 3 Intel Core i3 12th Gen 1215U - (8 GB/512 GB SSD/Windows 11 Home) A324-51 Thin and Light ...,"₹26,990","₹43,000",37% off,"5,386 Ratings&397 Reviews",,4.2
+Lenovo 100e Chromebook Gen 4 MediaTek Kompanio 520 - (4 GB/32 GB EMMC Storage/Chrome OS) 82W00004HA Ch...,"₹12,789","₹16,999",24% off,"1,720 Ratings&130 Reviews",,4
+MOTOROLA Motobook 60 Full Metal OLED (i7 14th Gen) Intel Core 7 (Series 2) 240H - (16 GB/1 TB SSD/Wind...,"₹57,990","₹1,10,490",47% off,578 Ratings&69 Reviews,,4.4
+HP 15s Intel Core i3 13th Gen 1315U - (8 GB/512 GB SSD/Windows 11 Home) 15-fd0006TU / 15-fd0569TU Thin...,"₹34,990","₹50,903",31% off,634 Ratings&44 Reviews,,4.2
+Acer Aspire Lite AMD Ryzen 5 Hexa Core 5625U - (8 GB/512 GB SSD/Windows 11 Home) AL15-41 Thin and Ligh...,"₹32,886","₹56,990",42% off,"2,486 Ratings&190 Reviews",,4.1
+Acer Aspire 3 Intel Celeron Dual Core - (8 GB/256 GB SSD/Windows 11 Home) A311-45 Thin and Light Lapto...,"₹17,990","₹33,399",46% off,"6,718 Ratings&601 Reviews",,3.8

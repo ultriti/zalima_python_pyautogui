@@ -1,29 +1,95 @@
-{'CheapestPrice': [name                Nokia 105 Classic with Charger
-descount_price                              1134.0
-orginal_price                               1399.0
-descount_Percent                                18
-review                                           3
-reviews                                          3
-rating                                           5
-Name: 12, dtype: object], 'MostExpensiveProduct': [name                Nothing Phone (3a) Pro (Black, 128 GB)
-descount_price                                     28999.0
-orginal_price                                      32999.0
-descount_Percent                                        12
-review                                                   4
-reviews                                                  4
-rating                                                   4
-Name: 4, dtype: object], 'MostReviewedProduct': [name                CMF by Nothing Phone 2 Pro (Black, 128 GB)
-descount_price                                           18999
-orginal_price                                            22999
-descount_Percent                                         99.93
-review                                                       7
-reviews                                                      4
-rating                                                       7
-Name: 0, dtype: object], 'HighestRatedProduct': [name                REDMI A5 (Jaisalmer Gold, 64 GB)
-descount_price                                  6499
-orginal_price                                   8999
-descount_Percent                                99.7
-review                                             4
-reviews                                            4
-rating                                             9
-Name: 2, dtype: object]}
+[
+  {
+    "type": "Cheapest",
+    "name": "Lenovo 100e Chromebook Gen 4 MediaTek Kompanio 520 - (4 GB/32 GB EMMC Storage/Chrome OS) 82W00004HA Ch...",
+    "discount_price": 12789,
+    "original_price": 16999,
+    "discount_percent": 24,
+    "review": "1,720 Ratings&130 Reviews",
+    "rating": NaN,
+    "reviews_stars": 4.0,
+    "ratings_count": 1720,
+    "reviews_count": 130
+  },
+  {
+    "type": "Most Expensive",
+    "name": "MOTOROLA Motobook 60 Full Metal OLED (i7 14th Gen) Intel Core 7 (Series 2) 240H - (16 GB/1 TB SSD/Wind...",
+    "discount_price": 68990,
+    "original_price": 110490,
+    "discount_percent": 37,
+    "review": "578 Ratings&69 Reviews",
+    "rating": NaN,
+    "reviews_stars": 4.4,
+    "ratings_count": 578,
+    "reviews_count": 69
+  },
+  {
+    "type": "Most Reviewed",
+    "name": "Samsung Galaxy Book4 Metal Intel Core i5 13th Gen 1335U - (16 GB/512 GB SSD/Windows 11 Home) NP750XGJ-...",
+    "discount_price": 49990,
+    "original_price": 82789,
+    "discount_percent": 39,
+    "review": "14,515 Ratings&1,164 Reviews",
+    "rating": NaN,
+    "reviews_stars": 4.4,
+    "ratings_count": 14515,
+    "reviews_count": 1164
+  },
+  {
+    "type": "Highest Rated",
+    "name": "Samsung Galaxy Book4 Metal Intel Core i5 13th Gen 1335U - (16 GB/512 GB SSD/Windows 11 Home) NP750XGJ-...",
+    "discount_price": 49990,
+    "original_price": 82789,
+    "discount_percent": 39,
+    "review": "14,515 Ratings&1,164 Reviews",
+    "rating": NaN,
+    "reviews_stars": 4.4,
+    "ratings_count": 14515,
+    "reviews_count": 1164
+  },
+  {
+    "type": "Top Product",
+    "name": "MOTOROLA Motobook 60 Full Metal OLED (i5 14th Gen) Intel Core 5 (Series 2) 210H - (16 GB/512 GB SSD/Wi...",
+    "price": 0,
+    "reviews": 0,
+    "rating": NaN,
+    "original_price": null,
+    "discount_percent": null
+  },
+  {
+    "type": "Top Product",
+    "name": "Samsung Galaxy Book4 Edge Series Copilot AI-PC Full Metal Chasis Qualcomm Snapdragon X - (16 GB/512 GB...",
+    "price": 0,
+    "reviews": 0,
+    "rating": NaN,
+    "original_price": null,
+    "discount_percent": null
+  },
+  {
+    "type": "Top Product",
+    "name": "Acer Aspire 3 Intel Celeron Dual Core - (8 GB/128 GB SSD/Windows 11 Home) A311-45 Thin and Light Lapto...",
+    "price": 0,
+    "reviews": 0,
+    "rating": NaN,
+    "original_price": null,
+    "discount_percent": null
+  },
+  {
+    "type": "Top Product",
+    "name": "DELL 15 AMD Ryzen 5 Hexa Core 7530U - (16 GB/512 GB SSD/Windows 11 Home) 3535 Thin and Light Laptop",
+    "price": 0,
+    "reviews": 0,
+    "rating": NaN,
+    "original_price": null,
+    "discount_percent": null
+  },
+  {
+    "type": "Top Product",
+    "name": "ASUS Expertbook P1 High-performance processor Intel Core i5 13th Gen 13420H - (16 GB/512 GB SSD/Window...",
+    "price": 0,
+    "reviews": 0,
+    "rating": NaN,
+    "original_price": null,
+    "discount_percent": null
+  }
+]

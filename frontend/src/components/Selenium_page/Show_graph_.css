@@ -1,0 +1,75 @@
+.bg_show_graph{
+    height: 100vh;
+    width: 100%;
+    background-color: #d3d3d3;
+    display: flex;
+    overflow-y: auto;
+    flex-direction: column;
+}
+
+.bg_show_cont{
+    min-height: 120vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* margin-top: 7vw; */
+}
+
+.img_grpah_div{
+    min-height: 90vh;
+    width: 100%;
+    /* background-color: #2d2d2d; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2vw 0;
+}
+
+.getDetail_frame{
+    min-height: 70vh;
+    width: 100%;
+    display: flex;
+    /* background-color: #fff; */
+    align-content: center;
+    justify-content: center;
+    padding: 2vw;
+}
+
+.getDetail_frame_cont{
+    height: 100%;
+    width: 100%;
+    padding: 1vw;
+}
+
+.btn_getinfo{
+    height: 3vw;
+    width: 14vw;
+    background-color: #969696;
+    border-radius: 20px;
+}
+
+
+.getinfo_data_display{
+    min-height: 50vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2vw;
+    border-radius: 20px;
+    box-shadow: inset 0 0 10px gray;
+    margin-bottom: 2vw;
+    margin-top: 1vw;
+}
+
+.getinfo_data_display p{
+    font-size: 1.1vw;
+}
+
+.down_file_btn{
+    height: 3vw;
+    width: 14vw;
+    background-color: #111;
+    color: whitesmoke;
+    margin-top: 2vw;
+    align-self: center;
+}

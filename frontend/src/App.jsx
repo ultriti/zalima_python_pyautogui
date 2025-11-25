@@ -11,6 +11,7 @@ import Show_graph from './components/Selenium_page/show_graph'
 import About from './components/authPages/About page/About'
 import Contact_page from './components/authPages/About page/Contact_page'
 import Ai_Model from './components/machineLearning-Pages/Ai_Model'
+import Show_graph_data from './components/Selenium_page/Show_graph_data'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,7 +24,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/autoMate" element={<SeleniumInputForm />} /> 
           <Route path="/contact" element={<Contact_page />} /> 
-          <Route path="/show_graph" element={<Show_graph />} />
+          <Route path="/show_graph" element={<Show_graph_data />} />
 
           {/* ai model */}
           <Route path="/ai_model" element={<Ai_Model />} />
